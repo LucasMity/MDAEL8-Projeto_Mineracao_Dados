@@ -6,10 +6,10 @@ from sklearn.preprocessing import MinMaxScaler
 
 def main():
     # Faz a leitura do arquivo
-    input_file = '0-Datasets/Phishing.data'
-    names = ['SFH','PopUpWindow','SSLfinal_State','Request_URL','URL_of_Anchor','web_traffic', 'URL_Length', 'age_of_domain', 'having_IP_Address', 'Result'] 
-    features = ['SFH','PopUpWindow','SSLfinal_State','Request_URL','URL_of_Anchor','web_traffic', 'URL_Length', 'age_of_domain', 'having_IP_Address'] 
-    target = 'Result'
+    input_file = '0-Datasets/loan_trainPre.csv'
+    names = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Applicant_Income', 'Coapplicant_Income', 'Loan_Amount', 'Term','Credit_History', 'Area', 'Status']
+    features = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Applicant_Income', 'Coapplicant_Income', 'Loan_Amount', 'Term','Credit_History', 'Area']
+    target = 'Status'
     df = pd.read_csv(input_file,    # Nome do arquivo com dados
                      names = names) # Nome das colunas                      
     ShowInformationDataFrame(df,"Dataframe original")
