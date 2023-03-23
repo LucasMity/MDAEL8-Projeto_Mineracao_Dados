@@ -24,7 +24,7 @@ E, por fim, temos o atributo de rótulo:
 * **Status** - "Y" ou "N", empréstimo aceito ou negado.
 
 ---
-# Pre-processamento de Dados
+# Pré-processamento de Dados
 ## Limpeza de dados
 A base de dados apresenta alguns dados faltantes, como segue a tabela:
 
@@ -58,7 +58,7 @@ Area|  "Rural", "Urban", "Semiurban"| 0, 1, 2
 Status| "Y" ou "N"| 1, 0
 
 ---
-# Normalização e redução de dados
+## Normalização e redução de dados
 
 ---
 # Análise descritiva de dados

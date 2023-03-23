@@ -6,7 +6,7 @@ from sklearn.preprocessing import MinMaxScaler
 
 def main():
     # Faz a leitura do arquivo
-    input_file = '0-Datasets/loan_trainPre.csv'
+    input_file = '0-Datasets/loan_trainClear.csv'
     names = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Applicant_Income', 'Coapplicant_Income', 'Loan_Amount', 'Term','Credit_History', 'Area', 'Status']
     features = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Applicant_Income', 'Coapplicant_Income', 'Loan_Amount', 'Term','Credit_History', 'Area']
     target = 'Status'

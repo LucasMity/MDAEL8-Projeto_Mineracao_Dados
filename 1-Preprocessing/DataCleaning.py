@@ -39,13 +39,18 @@ def main():
     method = 'mode' # number or median or mean or mode
     
     for c in columns_missing_value:
-        UpdateMissingValues(df, c)
+        UpdateMissingValues(df, c, method)
     
-    print(df.describe())
-    print("\n")
-    print(df.head(15))
-    print(df_original.head(15))
-    print("\n")
+    ShowInformationDataFrame(df,"Dataframe Clear")
+
+    # Converte os atributos categóricos para numéricos
+        # get all categorical columns
+    cat_columns = df.select_dtypes(['object']).columns
+
+        # convert all categorical columns to numeric
+    df[cat_columns] = df[cat_columns].apply(lambda x: pd.factorize(x)[0])
+
+    ShowInformationDataFrame(df,"Dataframe numérico")
     
     # Salva arquivo com o tratamento para dados faltantes
     df.to_csv(output_file, header=False, index=False)  
@@ -68,6 +73,12 @@ def UpdateMissingValues(df, column, method="mode", number=0):
         mode = df[column].mode()[0]
         df[column].fillna(mode, inplace=True)
 
+def ShowInformationDataFrame(df, message=""):
+    print(message+"\n")
+    print(df.info())
+    print(df.describe())
+    print(df.head(10))
+    print("\n") 
 
 if __name__ == "__main__":
     main()

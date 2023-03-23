@@ -2,14 +2,15 @@ import pandas as pd
 import numpy as np
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 
 def main():
     # Faz a leitura do arquivo
-    input_file = '0-Datasets/PhishingClear.data'
-    names = ['SFH','PopUpWindow','SSLfinal_State','Request_URL','URL_of_Anchor','web_traffic', 'URL_Length', 'age_of_domain', 'having_IP_Address', 'Result'] 
-    features = ['SFH','PopUpWindow','SSLfinal_State','Request_URL','URL_of_Anchor','web_traffic', 'URL_Length', 'age_of_domain', 'having_IP_Address'] 
-    target = 'Result'
+    input_file = '0-Datasets/loan_trainClear.csv'
+    names = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Applicant_Income', 'Coapplicant_Income', 'Loan_Amount', 'Term','Credit_History', 'Area', 'Status']
+    features =  ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Applicant_Income', 'Coapplicant_Income', 'Loan_Amount', 'Term', 'Credit_History', 'Area']
+    target = 'Status'
     df = pd.read_csv(input_file,    # Nome do arquivo com dados
                      names = names) # Nome das colunas                      
     ShowInformationDataFrame(df,"Dataframe original")
@@ -22,6 +23,7 @@ def main():
 
     # Standardizing the features
     x = StandardScaler().fit_transform(x)
+    # x = MinMaxScaler().fit_transform(x)
     normalizedDf = pd.DataFrame(data = x, columns = features)
     normalizedDf = pd.concat([normalizedDf, df[[target]]], axis = 1)
     ShowInformationDataFrame(normalizedDf,"Dataframe Normalized")
@@ -56,8 +58,8 @@ def VisualizePcaProjection(finalDf, targetColumn):
     ax.set_xlabel('Principal Component 1', fontsize = 15)
     ax.set_ylabel('Principal Component 2', fontsize = 15)
     ax.set_title('2 component PCA', fontsize = 20)
-    targets = [-1, 0, 1 ]
-    colors = ['r', 'g', 'b']
+    targets = [ 0, 1 ]
+    colors = ['r', 'g']
     for target, color in zip(targets,colors):
         indicesToKeep = finalDf[targetColumn] == target
         ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
