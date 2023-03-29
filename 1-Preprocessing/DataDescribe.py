@@ -22,6 +22,7 @@ def main():
     y = df.loc[:,[target]].values
 
     # Distribuição de frequência
+
     min = df['Applicant_Income'].min()
     max = df['Applicant_Income'].max()
     
@@ -31,12 +32,37 @@ def main():
         bins.append(x)
     bins.append(max)
 
-    df['Applicant_Income_group'] = pd.cut(df['Applicant_Income'], bins)
-    print(df['Applicant_Income_group'].value_counts().sort_index())
-    ShowHistogram(df, 'Applicant_Income_group')
-    
-    
+    # df['Applicant_Income_group'] = pd.cut(df['Applicant_Income'], bins)
+    # print(df['Applicant_Income_group'].value_counts().sort_index())
 
+    # labels = ['0-100k', '100k-200k', '200k-300k', '300k-400k', '400k-500k', '500k-600k', '600k-700k', '700k-800k', '800k-900k', '900k-1M', '>1M']
+    # group = df['Applicant_Income_group'].value_counts(sort=False)
+    # ShowHistogram(labels, group, 'Renda do requerente')
+
+    classe_cor = {0 : 'red', 1 : 'green'}
+    cores = [classe_cor[nome] for nome in df.Status]
+
+    df['Total_Income'] = df['Applicant_Income'] + df['Coapplicant_Income']
+
+    # df.plot(kind='scatter', x='Area', y='Term', c=cores)
+
+    # data = df
+    # data = df.drop('Status', axis=1)
+    # data = data.drop('Gender', axis=1)
+    # data = data.drop('Married', axis=1)
+    # data = data.drop('Dependents', axis=1)
+    # data = data.drop('Education', axis=1)
+    # data = data.drop('Self_Employed', axis=1)
+    # data = data.drop('Applicant_Income', axis=1)
+    # data = data.drop('Coapplicant_Income', axis=1)
+    # data = data.drop('Loan_Amount', axis=1)
+    # data = data.drop('Term', axis=1)
+    # data = data.drop('Credit_History', axis=1)
+    # data = data.drop('Area', axis=1)
+
+    # pd.plotting.scatter_matrix(data, color=cores)
+    plt.show()
+    
 
 def ShowInformationDataFrame(df, message=""):
     print(message+"\n")
@@ -45,15 +71,11 @@ def ShowInformationDataFrame(df, message=""):
     print(df.head(10))
     print("\n")
 
-def ShowHistogram(df, column):
-    n, bins, patches = plt.hist(x=df[column].value_counts().sort_index(), bins=11, color='#0504aa', alpha=0.7, rwidth=0.85)
-
-    plt.grid(axis='y', alpha=0.75)
-    plt.xlabel('Value')
-    plt.ylabel('Frequency')
-    plt.title('Histogram')
-    maxfreq = n.max()
+def ShowHistogram(label, group, labelx):
+    ax = group.plot.bar(color='blue')
+    plt.xticks(np.arange(11),label)
     plt.show()
+    
 
 
 if __name__ == "__main__":
