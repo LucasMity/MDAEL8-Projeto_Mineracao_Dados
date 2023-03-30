@@ -4,7 +4,7 @@
 ---
 # Base de dados "Loan Data Set"
 
-A base de dados ["Loan Data Set"](https://www.kaggle.com/datasets/mirzahasnine/loan-data-set?resource=download) está relacionada a concessão de crédito ou financiamento para uma pessoa de acordo com algumas características apresentadas por ela.
+A base de dados ["Loan Data Set"](https://www.kaggle.com/datasets/mirzahasnine/loan-data-set?resource=download) está relacionada a concessão de crédito ou empréstimo mobiliário para uma pessoa de acordo com algumas características apresentadas por ela.
 
 Dessa forma a base possui os seguintes 11 atributos:
 
@@ -14,11 +14,11 @@ Dessa forma a base possui os seguintes 11 atributos:
 * **Education** - "Graduate" ou "Not Graduate".
 * **Self_Employed** - "Yes" ou "No".
 * **Applicant_Income** - Um valor inteiro, representando a renda do requerente.
-* **Coapplicant_Income** - Um valor inteiro, representando a renda do corequerente.
+* **Coapplicant_Income** - Um valor inteiro, representando a renda do co-requerente.
 * **Loan_Amount** - Um valor inteiro, representando o valor do empréstimo.
 * **Term** - Um valor inteiro, representando o prazo (em meses) para quitar o empréstimo.
-* **Credit_History** - 1 ou 0, checa se a pessoa já possui um empréstimo ainda em andamento.
-* **Area** - "Rural", "Semiurban" ou "Urban", zona em que o requerente reside.
+* **Credit_History** - 1 ou 0, checa se a pessoa possui um histórico de quitação de dívida.
+* **Area** - "Rural", "Semiurban" ou "Urban", área do imóvel que o requerente quer o empréstimo.
 
 E, por fim, temos o atributo de rótulo:
 * **Status** - "Y" ou "N", empréstimo aceito ou negado.

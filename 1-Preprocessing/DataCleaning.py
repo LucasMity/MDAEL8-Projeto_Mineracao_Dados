@@ -72,6 +72,8 @@ def UpdateMissingValues(df, column, method="mode", number=0):
         # Substituindo valores ausentes pela moda
         mode = df[column].mode()[0]
         df[column].fillna(mode, inplace=True)
+    elif method == 'delete':
+        df.dropna(axis=0, how='any', subset=column, inplace=True)
 
 def ShowInformationDataFrame(df, message=""):
     print(message+"\n")
