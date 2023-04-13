@@ -35,9 +35,10 @@ def main():
     print(pca.explained_variance_ratio_.tolist())
     print("\n\n")
 
-    principalDf = pd.DataFrame(data = principalComponents[:,0:2], 
+    principalDf = pd.DataFrame(data = principalComponents[:,0:3], 
                                columns = ['principal component 1', 
-                                          'principal component 2'])
+                                          'principal component 2',
+                                          'principal component 3'])
     finalDf = pd.concat([principalDf, df[[target]]], axis = 1)    
     ShowInformationDataFrame(finalDf,"Dataframe PCA")
     
@@ -54,16 +55,20 @@ def ShowInformationDataFrame(df, message=""):
            
 def VisualizePcaProjection(finalDf, targetColumn):
     fig = plt.figure(figsize = (8,8))
-    ax = fig.add_subplot(1,1,1) 
+    ax = fig.add_subplot(1,1,1, projection='3d') 
     ax.set_xlabel('Principal Component 1', fontsize = 15)
     ax.set_ylabel('Principal Component 2', fontsize = 15)
-    ax.set_title('2 component PCA', fontsize = 20)
+    ax.set_zlabel('Principal Component 3', fontsize = 15)
+
+    ax.set_title('3 component PCA', fontsize = 20)
     targets = [ 0, 1 ]
     colors = ['r', 'g']
     for target, color in zip(targets,colors):
         indicesToKeep = finalDf[targetColumn] == target
         ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1'],
                    finalDf.loc[indicesToKeep, 'principal component 2'],
+                   finalDf.loc[indicesToKeep, 'principal component 3'],
+
                    c = color, s = 50)
     ax.legend(targets)
     ax.grid()

@@ -20,6 +20,8 @@ def main():
     df['Balance_Income'] = df['Total_Income'] - df['EMI']                  
     ShowInformationDataFrame(df,"Dataframe original")
 
+    df = df.loc[(df['Credit_History']>=1)]
+
     # Separating out the features
     x = df.loc[:, features].values
 
@@ -72,7 +74,7 @@ def main():
     classe_cor = {0 : 'red', 1 : 'green'}
     cores = [classe_cor[nome] for nome in df.Status]
 
-    df.plot(kind='scatter', x='Dependents', y='Loan_Amount', c=cores)
+    df.plot(kind='scatter', x='Total_Income', y='EMI', c=cores)
 
     # data = df
     # data = df.drop('Status', axis=1)
