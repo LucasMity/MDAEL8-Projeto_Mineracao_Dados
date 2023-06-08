@@ -77,10 +77,22 @@ def UpdateMissingValues(df, column, method="mode", number=0):
 
 def ShowInformationDataFrame(df, message=""):
     print(message+"\n")
-    print(df.info())
-    print(df.describe())
+    # Imprime as 10 primeiras linhas do arquivo
+    print("PRIMEIRAS 10 LINHAS\n")
     print(df.head(10))
-    print("\n") 
+    print("\n")
+    # Imprime informações sobre os dados
+    print("INFORMAÇÕES GERAIS DOS DADOS\n")
+    print(df.info())
+    print("\n")
+    # Imprime uma analise descritiva sobre os dados
+    print("DESCRIÇÃO DOS DADOS\n")
+    print(df.describe())
+    print("\n")
+    # Imprime a quantidade de valores faltantes por coluna
+    print("VALORES FALTANTES\n")
+    print(df.isnull().sum())
+    print("\n")  
 
 if __name__ == "__main__":
     main()

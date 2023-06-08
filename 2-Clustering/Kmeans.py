@@ -126,7 +126,7 @@ def main():
     #Visualize the results 
     plot_samples(projected, labels, 'Clusters Labels KMeans from scratch')
 
-    #Applying sklearn kemans function
+    #Applying sklearn kmeans function
     kmeans = KMeans(n_clusters=2).fit(projected)
     print(kmeans.inertia_)
     centers = kmeans.cluster_centers_
