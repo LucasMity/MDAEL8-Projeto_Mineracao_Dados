@@ -65,8 +65,3 @@ Status| "Y" ou "N"| 1, 0
 ## Visualização
 ## Medidas
 ---
-
-# A fazer
-
-* Balanceamento de base
-* Validação cruzada
