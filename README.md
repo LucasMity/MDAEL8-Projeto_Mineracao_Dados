@@ -24,44 +24,34 @@ E, por fim, temos o atributo de rótulo:
 * **Status** - "Y" ou "N", empréstimo aceito ou negado.
 
 ---
-# Pré-processamento de Dados
-## Limpeza de dados
-A base de dados apresenta alguns dados faltantes, como segue a tabela:
-
-Atributo|Dados Faltantes
----|---
-Gender|13
-Married|3
-Dependents|15
-Education|0
-Self_Employed|32
-Applicant_Income|0
-Coapplicant_Income|0
-Loan_Amount|0
-Term|14
-Credit_History|50
-Area|0
-Status|0
-
-A fim de completar os dados faltantes, foi utilizado o método de **moda**.
-
-## Colunas categóricas para numéricas
-Para melhor manipular e analisar os dados da base de dados, foram convertidas as colunas categóricas para numéricas:
-Coluna|Valor Categórico|Valor Numérico
----|---|---
-Gender|  "Female", "Male"| 1, 0
-Married|  "Yes", "No"| 1, 0
-Dependents|  0, 1, 2, 3+| 0, 1, 2, 3
-Education|  "Graduate", "Not Graduate"| 1, 0
-Self_Employed| "Yes", "No"| 1, 0
-Area|  "Rural", "Urban", "Semiurban"| 0, 1, 2
-Status| "Y" ou "N"| 1, 0
-
+## Procedimentos realizados:
+* Seleção e pré-processamento de Dados
+  * Limpeza de dados
+  * Balanceamento de dados
+* Normalização e redução de dados
+  * Implementação do min-max e z-score
+  * PCA
+  * Avaliação dos principais componentes
+* Análise descritiva de dados
+  * Distribuição de frequência
+  * Técnicas de visualização de dados
+  * Medidas resumo
+* Análise de grupos
+  * Algoritmo K-means
+  * Algoritmo GMM
+  * Avaliação da qualidade dos agrupamentos
+* Classificação
+  * Árvore de Decisão (*Decision Tree*)
+  * KNN (*K-Nearest Neighbors*)
+  * SVM (*Support Vectors Machine*)
+  * Rede Neural MLP (Multilayer Perceptron)
+  * Técnicas de divisão de base:
+    * Holdout (TReinamento 70% e Teste 30%)
+    * Cross-Validation (k=10)
+  * Métricas
+    * Matrix de confusão
+    * Acurácia
+    * F1 Score
+  * Comparação final
 ---
-## Normalização e redução de dados
-
----
-# Análise descritiva de dados
-## Visualização
-## Medidas
----
+## Todos os procedimentos e seus resultados podem ser vistos em [projeto.ipynb](./projeto.ipynb)
